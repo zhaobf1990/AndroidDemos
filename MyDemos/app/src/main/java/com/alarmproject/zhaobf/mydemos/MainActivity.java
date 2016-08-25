@@ -13,10 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.alarmproject.zhaobf.mydemos.ListView.EmptyActivity;
+
 public class MainActivity extends AppCompatActivity {
     ListView mListView;
     ArrayAdapter mAdapter;
-    String[] mData = new String[]{"动画", "view缩放", "杂七杂八", "异步", "存储"};
+    String[] mData = new String[]{"动画", "view缩放", "杂七杂八", "异步", "存储", "ListView"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, mData);
         mListView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         intent = new Intent(MainActivity.this, StorageActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(MainActivity.this, EmptyActivity.class);
                         break;
                 }
                 startActivity(intent);

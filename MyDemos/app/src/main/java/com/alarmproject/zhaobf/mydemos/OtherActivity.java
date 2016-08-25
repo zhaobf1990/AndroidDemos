@@ -14,12 +14,15 @@ import android.widget.ProgressBar;
 
 import com.alarmproject.zhaobf.mydemos.R;
 import com.alarmproject.zhaobf.mydemos.other.CustomerActivity;
+import com.alarmproject.zhaobf.mydemos.other.FragmentTest.Main2Activity;
 import com.alarmproject.zhaobf.mydemos.other.ProgressBarActivity;
+import com.alarmproject.zhaobf.mydemos.other.RectActivity;
 import com.alarmproject.zhaobf.mydemos.other.ScreenActivity;
+import com.alarmproject.zhaobf.mydemos.other.SuccessActivity;
 import com.alarmproject.zhaobf.mydemos.other.TestTextViewActivity;
 
 public class OtherActivity extends AppCompatActivity {
-    String[] data = new String[]{"横竖屏", "自定义控件", "TextView文字颜色", "进度条"};
+    String[] data = new String[]{"横竖屏", "自定义控件", "TextView文字颜色", "进度条", "绘制正方形", "绘制一个勾", "Activity和Fragment的生命周期"};
     private ListView listview;
 
     @Override
@@ -61,6 +64,18 @@ public class OtherActivity extends AppCompatActivity {
                     case 3:
                         Intent intent3 = new Intent(OtherActivity.this, ProgressBarActivity.class);
                         startActivity(intent3);
+                        break;
+                    case 4:
+                        Intent intent4 = new Intent(OtherActivity.this, RectActivity.class);
+                        startActivity(intent4);
+                        break;
+                    case 5:
+                        Intent intent5 = new Intent(OtherActivity.this, SuccessActivity.class);
+                        startActivity(intent5);
+                        break;
+                    case 6:
+                        Intent intent6 = new Intent(OtherActivity.this, Main2Activity.class);
+                        startActivity(intent6);
                         break;
                 }
             }

@@ -9,7 +9,7 @@
     <!--android:id="@+id/content"-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"></LinearLayout>-->
-    <com.alarmproject.zhaobf.mydemos.other.DrawView
+    <com.alarmproject.zhaobf.mydemos.other.CustomerView.DrawView
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
