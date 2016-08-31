@@ -41,12 +41,35 @@ public class MainActivity extends AppCompatActivity implements OnGestureListener
 
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
-        if (savedInstanceState != null) {    //横竖屏切换时,  还原之前的屏幕亮度
-            if (savedInstanceState.containsKey(SCREEN_BRIGHTNESS)) {
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.screenBrightness = savedInstanceState.getFloat(SCREEN_BRIGHTNESS);
-                getWindow().setAttributes(lp);
-            }
+
+    }
+
+    /**
+     * This method is called after {@link #onStart} when the activity is
+     * being re-initialized from a previously saved state, given here in
+     * <var>savedInstanceState</var>.  Most implementations will simply use {@link #onCreate}
+     * to restore their state, but it is sometimes convenient to do it here
+     * after all of the initialization has been done or to allow subclasses to
+     * decide whether to use your default implementation.  The default
+     * implementation of this method performs a restore of any view state that
+     * had previously been frozen by {@link #onSaveInstanceState}.
+     * <p>
+     * <p>This method is called between {@link #onStart} and
+     * {@link #onPostCreate}.
+     *
+     * @param savedInstanceState the data most recently supplied in {@link #onSaveInstanceState}.
+     * @see #onCreate
+     * @see #onPostCreate
+     * @see #onResume
+     * @see #onSaveInstanceState
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState.containsKey(SCREEN_BRIGHTNESS)) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.screenBrightness = savedInstanceState.getFloat(SCREEN_BRIGHTNESS);
+            getWindow().setAttributes(lp);
         }
     }
 
