@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/gesturedemo" />
             <option value="$PROJECT_DIR$/viewpagerdemo" />
           </set>
         </option>
@@ -16,6 +17,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/gesturedemo" />
             <option value="$PROJECT_DIR$/viewpagerdemo" />
           </set>
         </option>
