@@ -1,1 +1,1 @@
-include ':app', ':viewpagerdemo', ':gesturedemo'
+include ':app', ':viewpagerdemo', ':gesturedemo', ':okhttp3demo'
