@@ -1,10 +1,7 @@
 package zhaobf.okhttp3demo;
 
-import android.os.Handler;
-import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.test.mock.MockDialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,6 +20,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String URL = "http://localhost:8080/WebHttp/servlet/TestServlet";
     private Button btnAsyncGet;
     private TextView text;
     private Button btnAsyncPost;
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Log.d(MainActivity.class.getSimpleName(), "handler线程Id=" + Thread.currentThread().getId());
-                Request request = new Request.Builder().url("http://localhost:8080/WebHttp/servlet/TestServlet").build();
+                Request request = new Request.Builder().url(URL).build();
 
                 Response response = null;
                 String body = null;
@@ -112,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     private void getAsynHttp() {
         Log.d(MainActivity.class.getSimpleName(), "线程Id=" + Thread.currentThread().getId());
 
-        Request.Builder requestBuilder = new Request.Builder().url("http://localhost:8080/WebHttp/servlet/TestServlet");
+        Request.Builder requestBuilder = new Request.Builder().url(URL);
         //可以省略，默认是GET请求
         requestBuilder.method("GET", null);
         Request request = requestBuilder.build();
@@ -160,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 .add("size", "10")
                 .build();
         Request request = new Request.Builder()
-                .url("http://localhost:8080/WebHttp/servlet/TestServlet")
+                .url(URL)
                 .post(formBody)
                 .build();
         Call call = mOkHttpClient.newCall(request);
@@ -192,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 RequestBody frombody = new FormBody.Builder().add("size", "10").build();
-                Request request = new Request.Builder().url("http://localhost:8080/WebHttp/servlet/TestServlet").post(frombody).build();
+                Request request = new Request.Builder().url(URL).post(frombody).build();
 
                 String body = null;
                 try {
