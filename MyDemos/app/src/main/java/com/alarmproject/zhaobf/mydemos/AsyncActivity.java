@@ -10,11 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.alarmproject.zhaobf.mydemos.async.AsyncTaskTestActivity;
+import com.alarmproject.zhaobf.mydemos.async.Handler2Activity;
 import com.alarmproject.zhaobf.mydemos.async.HandlerTestActivity;
 
 public class AsyncActivity extends AppCompatActivity {
 
-    String[] data = new String[]{"Handler", "AsyncTask"};
+    String[] data = new String[]{"Handler", "AsyncTask", "Handler2"};
     private ListView listview;
 
 
@@ -35,7 +36,11 @@ public class AsyncActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        Intent intent2 = new Intent(AsyncActivity.this, AsyncTaskTestActivity.class);
+                        Intent intent1 = new Intent(AsyncActivity.this, AsyncTaskTestActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(AsyncActivity.this, Handler2Activity.class);
                         startActivity(intent2);
                         break;
                 }

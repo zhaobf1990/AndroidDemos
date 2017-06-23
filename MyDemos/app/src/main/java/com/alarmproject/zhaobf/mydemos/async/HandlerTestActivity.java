@@ -1,5 +1,6 @@
 package com.alarmproject.zhaobf.mydemos.async;
 
+import android.app.ActivityManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -21,9 +22,21 @@ public class HandlerTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_test);
         Log.d(TAG + "onCreate", Thread.currentThread().getId() + "");
+
+
+        //这样会开启一个新线程
         HandlerThread handlerThread = new HandlerThread("新线程");
         handlerThread.start();
         MyHandler myHandler = new MyHandler(handlerThread.getLooper());
+        //这样会在主线程里
+//        MyHandler myHandler = new MyHandler();
+
+        myHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG + "Runnable  run", Thread.currentThread().getId() + "");
+            }
+        });
         myHandler.sendMessage(myHandler.obtainMessage());
     }
 

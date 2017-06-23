@@ -63,7 +63,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".other.SuccessActivity" />
         <activity android:name=".other.FragmentTest.Main2Activity" />
-        <activity android:name=".ListView.EmptyActivity"></activity>
+        <activity android:name=".ListView.EmptyActivity" />
+        <activity android:name=".other.DialogActivity" />
+        <activity android:name=".async.Handler2Activity"></activity>
     </application>
 
 </manifest>

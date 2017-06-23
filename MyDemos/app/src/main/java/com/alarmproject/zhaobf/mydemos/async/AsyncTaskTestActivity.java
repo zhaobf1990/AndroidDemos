@@ -36,6 +36,12 @@ public class AsyncTaskTestActivity extends AppCompatActivity {
             super();
         }
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
         @Override
         protected String doInBackground(Integer[] params) {
 
